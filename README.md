@@ -5,7 +5,7 @@ Application for avaliation to the team Bis2Bis E-Commerce.
 
 ## Installation
 
-Use the [npm][https://www.npmjs.com/] to install.
+Use the [npm](https://www.npmjs.com/) to install.
 
 ```bash
 git clone https://github.com/jaxolv/universities.git
@@ -16,7 +16,7 @@ npm install
 
 ## Run
 
-To run the application, you must create an file [.env][https://www.npmjs.com/package/dotenv] inside the folder `universities`:
+To run the application, you must create an file [.env](https://www.npmjs.com/package/dotenv) inside the folder `universities`:
 
 ```bash
 ./universities/.env
