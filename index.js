@@ -16,7 +16,7 @@ app.use('/universities', routesUniversity)
 
 mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@apicluster.wcktuki.mongodb.net/?retryWrites=true&w=majority`)
     .then(() => {
-        console.log('Servidor conectado ao MongoDB!')
+        console.log('Connected to MongoDB!')
         app.listen(process.env.DB_PORT)
     })
     .catch((error) => {

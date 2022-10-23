@@ -26,12 +26,13 @@ router.get('/:id', (req, res) => {
     showUniversityByIdController(req, res)
 })
 
+router.put('/:id', (req, res) => {
+    updateUniversityController(req, res)
+})
+
 router.delete('/:id', (req, res) => {
     deleteUniversityController(req, res)
 })
 
-router.put('/:id', (req, res) => {
-    updateUniversityController(req, res)
-})
 
 module.exports = router;
