@@ -20,7 +20,7 @@ async function createUniversityController(req, res) {
             alpha_two_code
         )
 
-        return res.status(201).json({ success: university })
+        return res.status(201).json(university)
     } catch (error) {
         res.status(400).json({ error: error.message })
     }
