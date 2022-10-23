@@ -1,18 +1,14 @@
-const University = require('../models/University')
+const updateUniversityService = require('../services/updateUniversityService')
 
 async function updateUniversityController(req, res) {
     const id = req.params.id
 
     const { web_pages, name, domains } = req.body
 
-    const university = { web_pages, name, domains }
-
     try {
-        await University.findByIdAndUpdate({
-            _id: id
-        }, university)
+        const university = await updateUniversityService(id, web_pages, name, domains)
 
-        res.status(200).json(university)
+        return res.status(200).json(university)
     } catch (error) {
         console.log(error)
         res.status(500).json({ error: error.message })
