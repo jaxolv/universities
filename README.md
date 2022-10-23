@@ -15,9 +15,11 @@ npm install
 
 ## API endpoints
 
-To see how the API must work, run here:
+To see how the API must work, run it in here:
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/23352447-4f1a1cc6-214b-4493-bfac-cd558af271c2?action=collection%2Ffork&collection-url=entityId%3D23352447-4f1a1cc6-214b-4493-bfac-cd558af271c2%26entityType%3Dcollection%26workspaceId%3Dd8639506-d2bf-4cd4-8206-57d775d5182a)
+
+Be sure to have an account in Postman and to click in `Vie collection`. 
 
 
 ## Run
