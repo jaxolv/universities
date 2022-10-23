@@ -8,9 +8,7 @@ async function listUniversitiesByCountryService(country) {
 
         const universities = await University.find({ country })
 
-        if (universities.length === 0) {
-            return { message: "Country not found." }
-        }
+        if (!universities) { return { message: "Country not found." } }
 
         const listUniversities = universities.map((university) => {
             return {
