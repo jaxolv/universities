@@ -17,7 +17,7 @@ npm install
 
 To see how the API must work, run here:
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/23352447-d4e4b552-7bdc-47d6-8f40-cc21b1b85185?action=collection%2Ffork&collection-url=entityId%3D23352447-d4e4b552-7bdc-47d6-8f40-cc21b1b85185%26entityType%3Dcollection%26workspaceId%3Dd8639506-d2bf-4cd4-8206-57d775d5182a)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/23352447-4f1a1cc6-214b-4493-bfac-cd558af271c2?action=collection%2Ffork&collection-url=entityId%3D23352447-4f1a1cc6-214b-4493-bfac-cd558af271c2%26entityType%3Dcollection%26workspaceId%3Dd8639506-d2bf-4cd4-8206-57d775d5182a)
 
 
 ## Run
