@@ -1,9 +1,8 @@
 require('dotenv').config();
-const express = require("express");
 const mongoose = require('mongoose');
+const express = require("express");
 const app = express();
 
-// middlewares
 app.use(
     express.urlencoded({
         extended: true
@@ -12,17 +11,12 @@ app.use(
 
 app.use(express.json())
 
-// rotas da API
 const routesUniversity = require('./src/routes/routesUniversity')
 app.use('/universities', routesUniversity)
 
-app.get('/', (req, res) => {
-    res.json({ message: "Olá, mundo!" })
-})
-
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@apicluster.j0v0lu8.mongodb.net/?retryWrites=true&w=majority`)
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@apicluster.wcktuki.mongodb.net/?retryWrites=true&w=majority`)
     .then(() => {
-        console.log('Conectamos ao MongoDB!')
+        console.log('Servidor conectado ao MongoDB!')
         app.listen(process.env.DB_PORT)
     })
     .catch((error) => {
