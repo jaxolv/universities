@@ -4,7 +4,7 @@ let populated = false
 
 async function populateUniversitiesController(req, res) {
     try {
-        if (!populated) {
+        while (!populated) {
             await populateUniversitiesDatabase()
 
             populated = true
@@ -14,7 +14,7 @@ async function populateUniversitiesController(req, res) {
             })
         }
 
-        return res.status(200).json( {
+        return res.status(200).json({
             message: "Universities already merged."
         })
 
