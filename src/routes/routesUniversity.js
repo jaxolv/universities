@@ -5,7 +5,9 @@ router.post('/populate', (req, res) => {
     populateUniversitiesController(req, res)
 })
 
-const listUniversitiesController = require('../app/controllers/listUniversitiesController')
+const listAllUniversitiesController = require('../app/controllers/listAllUniversitiesController')
+const showUniversityByIdController = require('../app/controllers/showUniversityByIdController')
+const listUniversitiesByCountryController = require('../app/controllers/listUniversitiesByCountryController')
 const createUniversityController = require('../app/controllers/createUniversityController')
 const updateUniversityController = require('../app/controllers/updateUniversityController')
 const deleteUniversityController = require('../app/controllers/deleteUniversityController')
@@ -15,10 +17,13 @@ router.post('/', (req, res) => {
 })
 
 router.get('/', (req, res) => {
-    listUniversitiesController(req, res)
+    listAllUniversitiesController(req, res)
+})
+router.get('/search', (req, res) => {
+    listUniversitiesByCountryController(req, res)
 })
 router.get('/:id', (req, res) => {
-    listUniversitiesController(req, res)
+    showUniversityByIdController(req, res)
 })
 
 router.delete('/:id', (req, res) => {
