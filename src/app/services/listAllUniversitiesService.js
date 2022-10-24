@@ -13,24 +13,24 @@ async function listAllUniversitiesService(country) {
                         name: university.name,
                         country: university.country,
                         state_province: university.state_province,
-                        for_more_info: `http://universities.hipolabs.com/search?name=${university.name.replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20')}`
+                        for_more_info: `http://universities.hipolabs.com/search?name=${university.name.replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20')}`
                     }
                 })
             }
         }
 
         if (!country) {
-            const universities = await University.find({ })
+            const universities = await University.find()
 
             return {
                 universities: universities.length,
-                for_more_info: `http://universities.hipolabs.com/search`,
                 list_universities: universities.map((university) => {
                     return {
                         id: university._id,
                         name: university.name,
                         country: university.country,
                         state_province: university.state_province,
+                        for_more_info: `http://universities.hipolabs.com/search?name=${university.name.replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20')}`
                     }
                 })
             }
