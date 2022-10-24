@@ -13,6 +13,7 @@ cd universities
 npm install
 ```
 
+
 ## Run
 
 To run the application, you must create an file [.env](https://www.npmjs.com/package/dotenv) inside the folder `universities`:
@@ -52,7 +53,6 @@ As the example: `http://localhost:0000`.
 
 `POST /universities/populate`
 
-
 This request will populate the database with all the data from the 1020 universities.
 
 This should be the message you receive when executed correctly:
@@ -62,11 +62,10 @@ This should be the message you receive when executed correctly:
 }
 ```
 
-This request will not be executaded again.
+This request will not be executed again.
 
 
 `POST /universities`
-
 
 This request will create an university.
 
@@ -86,13 +85,16 @@ Example:
 }
 ```
 
-This request will not succeed if informed the same data from an university already existent in the database.
-
+This request will not succeed if informed the exact same data from an university already existent in the database.
 
 `GET /universities`
 
-
 This request will return all the universities in the database.
+
+
+`GET /universities/search`
+
+This request will return all the universities from the informed country.
 
 It is possible to find the universities of a country informing as a query  `country` one of those countries:
 
@@ -120,7 +122,6 @@ The ID have to be informed as a param.
 
 `PUT /universities/:id`
 
-
 This request will update some of the data from the university that will be found by the ID.
 
 Example:
@@ -141,8 +142,7 @@ The ID have to be informed as a param.
 
 `DELETE /universities/:id`
 
-
-This request will remove the university that will be informed by the ID informed.
+This request will remove the university that will be founded by the ID informed.
 
 This should be the message you receive when executed correctly:
 ```json
