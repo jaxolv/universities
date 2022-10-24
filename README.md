@@ -13,14 +13,6 @@ cd universities
 npm install
 ```
 
-## API endpoints
-
-To see how the API must work, run it in here:
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/23352447-4f1a1cc6-214b-4493-bfac-cd558af271c2?action=collection%2Ffork&collection-url=entityId%3D23352447-4f1a1cc6-214b-4493-bfac-cd558af271c2%26entityType%3Dcollection%26workspaceId%3Dd8639506-d2bf-4cd4-8206-57d775d5182a)
-
-Be sure to have an account in Postman and to click in `View collection`. 
-
 
 ## Run
 
@@ -55,21 +47,26 @@ To the API tester, use the port informed.
 
 As the example: `http://localhost:0000`.
 
+
 ## Usage overview
 
+
 `POST /universities/populate`
+
 This request will populate the database with all the data from the 1020 universities.
 
 This should be the message you receive when executed correctly:
 ```json
 {
-  "message": "All universities were succesfully merged!"
+  "message": "The database was succesfully populated!"
 }
 ```
 
 This request will not be executed again.
 
+
 `POST /universities`
+
 This request will create an university.
 
 Example:
@@ -91,30 +88,40 @@ Example:
 This request will not succeed if informed the exact same data from an university already existent in the database.
 
 `GET /universities`
+
 This request will return all the universities in the database.
 
+
 `GET /universities/search`
+
 This request will return all the universities from the informed country.
 
-The country have to be informed as a query.
+It is possible to find the universities of a country informing as a query  `country` one of those countries:
 
-Example the URL field:
 ```bash
-GET /universities/search?country=uruguay
+[
+    "argentina", 
+    "brazil", 
+    "chile", 
+    "colombia", 
+    "paraguay", 
+    "peru", 
+    "suriname", 
+    "uruguay"
+]
 ```
 
+
 `GET /universities/:id`
+
+
 This request will return an unique university found by the ID informed.
 
 The ID have to be informed as a param.
 
-Example the URL field:
-```bash
-GET /universities/000000000000000000000000
-```
-
 
 `PUT /universities/:id`
+
 This request will update some of the data from the university that will be found by the ID.
 
 Example:
@@ -132,13 +139,15 @@ Example:
 
 The ID have to be informed as a param.
 
+
 `DELETE /universities/:id`
+
 This request will remove the university that will be founded by the ID informed.
 
 This should be the message you receive when executed correctly:
 ```json
 {
-  "message": "All universities were succesfully merged!"
+  "message": "University deleted succesfully."
 }
 ```
 
