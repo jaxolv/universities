@@ -7,7 +7,6 @@ router.post('/populate', (req, res) => {
 
 const listAllUniversitiesController = require('../app/controllers/listAllUniversitiesController')
 const showUniversityByIdController = require('../app/controllers/showUniversityByIdController')
-const listUniversitiesByCountryController = require('../app/controllers/listUniversitiesByCountryController')
 const createUniversityController = require('../app/controllers/createUniversityController')
 const updateUniversityController = require('../app/controllers/updateUniversityController')
 const deleteUniversityController = require('../app/controllers/deleteUniversityController')
