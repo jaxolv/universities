@@ -10,12 +10,12 @@ async function populateUniversitiesController(req, res) {
             populated = true
 
             return res.status(201).json({
-                message: "All universities were succesfully merged!"
+                message: "The database was populated succesfully!"
             })
         }
 
         return res.status(200).json({
-            message: "Universities already merged."
+            message: "This request can't be executed again."
         })
 
     } catch (error) {

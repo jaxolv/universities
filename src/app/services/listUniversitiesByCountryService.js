@@ -3,7 +3,7 @@ const University = require('../models/University')
 async function listUniversitiesByCountryService(country) {
     try {
         if (!country) {
-            return res.status(400).json({ message: "It's necessary to inform the country to this search." })
+            return { message: "It's necessary to inform the country to this search." }
         }
 
         const universities = await University.find({ country })
