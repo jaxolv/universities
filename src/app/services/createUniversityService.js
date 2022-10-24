@@ -12,18 +12,18 @@ async function createUniversityService(domains, country, state_province, web_pag
 
         if (!alpha_two_code || alpha_two_code.length !== 2) { return { message: "The field \'alpha_two_code\' has to be informed and no more than two characters." } };
 
-        const foundedUniversity = await University.findOne({ name, country });
+        const foundUniversity = await University.findOne({ name, country, 'state-province': state_province });
 
-        if (foundedUniversity) {
+        if (foundUniversity) {
             return { message: "This university it's already on our database." }
         };
 
         const university = {
-            domains,
-            country,
-            state_province,
-            web_pages,
-            name,
+            domains: domains,
+            country: country,
+            'state-province': state_province,
+            web_pages: web_pages,
+            name: name,
             alpha_two_code: alpha_two_code.toUpperCase()
         };
 

@@ -5,15 +5,18 @@ async function listAllUniversitiesService(country) {
         if (country) {
             const universities = await University.find({ country });
 
+            if (universities.length === 0) { return { message: "Country not found." } };
+
             return {
                 universities: universities.length,
+                universities_of_country: `http://universities.hipolabs.com/search?country=${country.toLowerCase()}`,
                 list_universities: universities.map((university) => {
                     return {
                         id: university._id,
                         name: university.name,
                         country: university.country,
-                        state_province: university.state_province,
-                        for_more_info: `http://universities.hipolabs.com/search?name=${university.name.replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20')}`
+                        'state-province': university.state_province,
+                        more_info: `http://universities.hipolabs.com/search?name=${university.name.replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20')}`
                     }
                 })
             }
@@ -30,7 +33,7 @@ async function listAllUniversitiesService(country) {
                         name: university.name,
                         country: university.country,
                         state_province: university.state_province,
-                        for_more_info: `http://universities.hipolabs.com/search?name=${university.name.replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20')}`
+                        more_info: `http://universities.hipolabs.com/search?name=${university.name.replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20')}`
                     }
                 })
             }
