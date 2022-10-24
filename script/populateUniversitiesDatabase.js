@@ -5,7 +5,7 @@ const apiUrl = 'http://universities.hipolabs.com/search';
 const countriesList = ["argentina", "brazil", "chile", "colombia", "paraguay", "peru", "suriname", "uruguay"];
 
 async function fetchUniversitiesByCountry(country) {
-    const { data: universitiesByCountry } = await axios.get(apiUrl,
+    const { data: allUniversitiesInApi } = await axios.get(apiUrl,
         {
             params: {
                 country
@@ -13,7 +13,7 @@ async function fetchUniversitiesByCountry(country) {
         }
     );
 
-    return universitiesByCountry;
+    return allUniversitiesInApi;
 };
 
 async function populateUniversitiesDatabase() {

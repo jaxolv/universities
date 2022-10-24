@@ -14,7 +14,7 @@ npm install
 
 ## Run
 
-To run the application, you must create an file [.env](https://www.npmjs.com/package/dotenv) inside the folder `universities`:
+To run the application, you must create a file [.env](https://www.npmjs.com/package/dotenv) inside the folder `universities`:
 
 ```bash
 ./universities/.env
@@ -68,15 +68,15 @@ Example:
 ```json
 {
     "domains": [
-        "www.universidadedemunique.br"
+        "www.akad.de"
     ],
-    "country": "Alemanha",
+    "country": "Germany",
     "state-province": null,
     "web_pages": [
-        "http://www.universidadedemunique.br/"
+        "www.akad.de"
     ],
-    "name": "Universidade de Munique",
-    "alpha_two_code": "ge"
+    "name": "AKAD Hochschulen f\u00fcr Berufst\u00e4tige",
+    "alpha_two_code": "DE"
 }
 ```
 
@@ -115,12 +115,12 @@ Example:
 ```json
 {
     "domains": [
-        "www.universityofmunich.br/"
+        "akad.de"
     ],
     "web_pages": [
-        "http://www.universityofmunich.br/"
+        "http://www.akad.de/"
     ],
-    "name": "University of Munich"
+    "name": "AKAD Hochschulen f\u00fcr Berufst\u00e4tige, Fachhochschule Leipzig"
 }
 ```
 
@@ -128,7 +128,7 @@ The ID have to be informed as a param and will return only the updated data.
 
 `DELETE /universities/:id`
 
-This request will remove the university that will be founded by the ID informed.
+This request will remove the university that will be found by the ID informed.
 
 This should be the message you receive when executed correctly:
 ```json
