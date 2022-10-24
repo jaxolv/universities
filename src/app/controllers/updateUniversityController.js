@@ -6,9 +6,9 @@ async function updateUniversityController(req, res) {
     const { web_pages, name, domains } = req.body;
 
     try {
-        const university = await updateUniversityService(id, web_pages, name, domains);
+        const data = await updateUniversityService(id, web_pages, name, domains);
 
-        return res.status(200).json(university);
+        return res.status(data.status).json(data.result);
     } catch (error) {
         console.log(error)
         res.status(500).json({ error: error.message })

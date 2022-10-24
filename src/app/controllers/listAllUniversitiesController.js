@@ -4,13 +4,13 @@ async function listAllUniversitiesController(req, res) {
     const country = req.query.country;
 
     try {
-        const universities = await listAllUniversitiesService(country);
+        const data = await listAllUniversitiesService(country);
 
-        res.status(200).json(universities);
+        res.status(data.status).json(data.result);
 
     } catch (error) {
         console.log(error)
-        res.status(400).json({ error: error.message })
+        res.status(500).json({ error: error.message })
     }
 };
 

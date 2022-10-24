@@ -4,13 +4,13 @@ async function showUniversityByIdController(req, res) {
     const id = req.params.id;
 
     try {
-        const universityFounded = await showUniversityByIdService(id);
+        const data = await showUniversityByIdService(id);
 
-        return res.status(200).json(universityFounded);
+        return res.status(data.status).json(data.result);
 
     } catch (error) {
         console.log(error)
-        res.status(400).json({ error: error.message })
+        res.status(500).json({ error: error.message })
     }
 };
 

@@ -6,6 +6,13 @@ async function listAllUniversitiesService(country) {
 
         const universities = await University.find();
 
+        if (!universities) {
+            return {
+                status: 204,
+                result: "No universities in the database. You have to populate it first."
+            }
+        }
+
         function listUniversities(array) {
             return array.map((university) => {
                 return {
@@ -20,18 +27,29 @@ async function listAllUniversitiesService(country) {
 
         if (country) {
 
-            if (universitiesByCountry.length === 0) { return { message: "Country not found." } };
+            if (universitiesByCountry.length === 0) {
+                return {
+                    status: 400,
+                    result: "Country not saved in the database."
+                }
+            };
 
             return {
-                universities: universitiesByCountry.length,
-                universities_of_country: `http://universities.hipolabs.com/search?country=${country.toLowerCase()}`,
-                list_universities: listUniversities(universitiesByCountry)
+                status: 200,
+                result: {
+                    universities: universitiesByCountry.length,
+                    universities_of_country: `http://universities.hipolabs.com/search?country=${country.toLowerCase()}`,
+                    list_universities: listUniversities(universitiesByCountry)
+                }
             }
         };
 
         return {
-            universities: universities.length,
-            list_universities: listUniversities(universities)
+            status: 200,
+            result: {
+                universities: universities.length,
+                list_universities: listUniversities(universities)
+            }
         }
     } catch (error) {
         console.log(error)

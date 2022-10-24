@@ -13,7 +13,7 @@ async function populateUniversitiesController(req, res) {
             })
         };
 
-        return res.status(200).json({
+        return res.status(405).json({
             message: "This request can't be executed again."
         });
     } catch (error) {
