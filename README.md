@@ -2,7 +2,6 @@
 
 Application for avaliation to the team Bis2Bis E-Commerce.
 
-
 ## Installation
 
 Use the [npm](https://www.npmjs.com/) to install.
@@ -12,7 +11,6 @@ git clone https://github.com/jaxolv/universities.git
 cd universities
 npm install
 ```
-
 
 ## Run
 
@@ -47,9 +45,7 @@ To the API tester, use the port informed.
 
 As the example: `http://localhost:0000`.
 
-
 ## Usage overview
-
 
 `POST /universities/populate`
 
@@ -63,7 +59,6 @@ This should be the message you receive when executed correctly:
 ```
 
 This request will not be executed again.
-
 
 `POST /universities`
 
@@ -91,11 +86,6 @@ This request will not succeed if informed the exact same data from an university
 
 This request will return all the universities in the database.
 
-
-`GET /universities/search`
-
-This request will return all the universities from the informed country.
-
 It is possible to find the universities of a country informing as a query  `country` one of those countries:
 
 ```bash
@@ -111,14 +101,11 @@ It is possible to find the universities of a country informing as a query  `coun
 ]
 ```
 
-
 `GET /universities/:id`
-
 
 This request will return an unique university found by the ID informed.
 
 The ID have to be informed as a param.
-
 
 `PUT /universities/:id`
 
@@ -138,7 +125,6 @@ Example:
 ```
 
 The ID have to be informed as a param.
-
 
 `DELETE /universities/:id`
 
