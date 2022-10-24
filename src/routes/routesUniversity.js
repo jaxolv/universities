@@ -19,9 +19,6 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
     listAllUniversitiesController(req, res)
 })
-router.get('/search', (req, res) => {
-    listUniversitiesByCountryController(req, res)
-})
 router.get('/:id', (req, res) => {
     showUniversityByIdController(req, res)
 })
