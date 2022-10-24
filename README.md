@@ -70,7 +70,7 @@ Example:
     "domains": [
         "www.universidadedemunique.br"
     ],
-    "country": "Alemanha",
+    "country": "Germany",
     "state-province": null,
     "web_pages": [
         "http://www.universidadedemunique.br/"
@@ -128,7 +128,7 @@ The ID have to be informed as a param and will return only the updated data.
 
 `DELETE /universities/:id`
 
-This request will remove the university that will be founded by the ID informed.
+This request will remove the university that will be found by the ID informed.
 
 This should be the message you receive when executed correctly:
 ```json
