@@ -58,7 +58,7 @@ This should be the message you receive when executed correctly:
 }
 ```
 
-This request will not be executaded again.
+This request will not be executed again if the database have any information saved. So, be sure to use it at first.
 
 `POST /universities`
 
@@ -80,7 +80,7 @@ Example:
 }
 ```
 
-This request will not succeed if informed the same data from an university already existent in the database.
+This request will not succeed if informed the exact same data from an university already existent in the database.
 
 `GET /universities`
 
@@ -105,7 +105,7 @@ It is possible to find the universities of a country informing as a query  `coun
 
 This request will return an unique university found by the ID informed.
 
-The ID have to be informed as a param.
+The ID have to be informed as a param and will return all the data from the university.
 
 `PUT /universities/:id`
 
@@ -124,11 +124,11 @@ Example:
 }
 ```
 
-The ID have to be informed as a param.
+The ID have to be informed as a param and will return only the updated data.
 
 `DELETE /universities/:id`
 
-This request will remove the university that will be informed by the ID informed.
+This request will remove the university that will be founded by the ID informed.
 
 This should be the message you receive when executed correctly:
 ```json

@@ -1,4 +1,4 @@
-const createUniversityService = require('../services/createUniversityService')
+const createUniversityService = require('../services/createUniversityService');
 
 async function createUniversityController(req, res) {
     const {
@@ -8,7 +8,7 @@ async function createUniversityController(req, res) {
         web_pages,
         name,
         alpha_two_code
-    } = req.body
+    } = req.body;
 
     try {
         const university = await createUniversityService(
@@ -18,12 +18,12 @@ async function createUniversityController(req, res) {
             web_pages,
             name,
             alpha_two_code
-        )
+        );
 
-        return res.status(201).json(university)
+        return res.status(201).json(university);
     } catch (error) {
         res.status(400).json({ error: error.message })
     }
-}
+};
 
 module.exports = createUniversityController;

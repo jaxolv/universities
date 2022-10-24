@@ -1,25 +1,21 @@
 const { populateUniversitiesDatabase } = require('../../../script/populateUniversitiesDatabase');
-const University = require('../models/University')
-
-const universities = University.find()
-
-const populated = false
+const University = require('../models/University');
 
 async function populateUniversitiesController(req, res) {
     try {
-        while (universities.length <= 1020 && !populated) {
-            await populateUniversitiesDatabase()
+        const universities = await University.find();
 
-            populated = true
+        while (universities.length === 0) {
+            await populateUniversitiesDatabase();
 
             return res.status(201).json({
                 message: "The database was populated succesfully!"
             })
-        }
+        };
 
         return res.status(200).json({
             message: "This request can't be executed again."
-        })
+        });
     } catch (error) {
         res.status(500).json({ error: error.message })
     }

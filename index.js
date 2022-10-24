@@ -7,18 +7,18 @@ app.use(
     express.urlencoded({
         extended: true
     })
-)
+);
 
-app.use(express.json())
+app.use(express.json());
 
 const routesUniversity = require('./src/routes/routesUniversity')
-app.use('/universities', routesUniversity)
+app.use('/universities', routesUniversity);
 
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@apicluster.k1iqw6b.mongodb.net/?retryWrites=true&w=majority`)
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@apicluster.5fghw0g.mongodb.net/?retryWrites=true&w=majority`)
     .then(() => {
         console.log('Connected to MongoDB!')
         app.listen(process.env.DB_PORT)
     })
     .catch((error) => {
         error.message
-    })
+    });
