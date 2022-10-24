@@ -1,9 +1,9 @@
-const University = require('../models/University')
+const University = require('../models/University');
 
 async function listAllUniversitiesService(country) {
     try {
         if (country) {
-            const universities = await University.find({ country })
+            const universities = await University.find({ country });
 
             return {
                 universities: universities.length,
@@ -17,10 +17,10 @@ async function listAllUniversitiesService(country) {
                     }
                 })
             }
-        }
+        };
 
         if (!country) {
-            const universities = await University.find()
+            const universities = await University.find();
 
             return {
                 universities: universities.length,
@@ -34,11 +34,11 @@ async function listAllUniversitiesService(country) {
                     }
                 })
             }
-        }
+        };
     } catch (error) {
         console.log(error)
         return { error: error.message }
     }
-}
+};
 
 module.exports = listAllUniversitiesService;

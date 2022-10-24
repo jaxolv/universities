@@ -7,12 +7,12 @@ app.use(
     express.urlencoded({
         extended: true
     })
-)
+);
 
-app.use(express.json())
+app.use(express.json());
 
 const routesUniversity = require('./src/routes/routesUniversity')
-app.use('/universities', routesUniversity)
+app.use('/universities', routesUniversity);
 
 mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@apicluster.5fghw0g.mongodb.net/?retryWrites=true&w=majority`)
     .then(() => {
@@ -21,4 +21,4 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@ap
     })
     .catch((error) => {
         error.message
-    })
+    });

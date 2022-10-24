@@ -1,8 +1,8 @@
 const axios = require("axios");
-const University = require("../src/app/models/University")
+const University = require("../src/app/models/University");
 
-const apiUrl = 'http://universities.hipolabs.com/search'
-const countriesList = ["argentina", "brazil", "chile", "colombia", "paraguay", "peru", "suriname", "uruguay"]
+const apiUrl = 'http://universities.hipolabs.com/search';
+const countriesList = ["argentina", "brazil", "chile", "colombia", "paraguay", "peru", "suriname", "uruguay"];
 
 async function fetchUniversitiesByCountry(country) {
     const { data: universitiesByCountry } = await axios.get(apiUrl,
@@ -22,6 +22,6 @@ async function populateUniversitiesDatabase() {
 
         University.insertMany(universitiesByCountry)
     }
-}
+};
 
-module.exports = { populateUniversitiesDatabase }
+module.exports = { populateUniversitiesDatabase };
