@@ -1,0 +1,14 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Universities - Bis2Bis Avaliation",
+        "description": "Application for avaliation to the team Bis2Bis E-Commerce.",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "description": "Localhost",
+            "url": "http://localhost:8888/universities"
+        }
+    ]
+}

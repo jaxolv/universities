@@ -1,9 +1,13 @@
 const router = require('express').Router()
+const swagger = require('swagger-ui-express')
+const swaggerJson = require('../docs/swagger.json')
 
 const populateUniversitiesController = require('../app/controllers/populateUniversitiesController');
 router.post('/populate', (req, res) => {
     populateUniversitiesController(req, res)
 });
+
+router.use('/docs', swagger.serve, swagger.setup(swaggerJson))
 
 const listAllUniversitiesController = require('../app/controllers/listAllUniversitiesController');
 const showUniversityByIdController = require('../app/controllers/showUniversityByIdController');

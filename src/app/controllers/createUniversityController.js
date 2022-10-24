@@ -11,7 +11,7 @@ async function createUniversityController(req, res) {
     } = req.body;
 
     try {
-        const university = await createUniversityService(
+        const data = await createUniversityService(
             domains,
             country,
             state_province,
@@ -20,9 +20,9 @@ async function createUniversityController(req, res) {
             alpha_two_code
         );
 
-        return res.status(201).json(university);
+        return res.status(data.status).json(data.result);
     } catch (error) {
-        res.status(400).json({ error: error.message })
+        res.status(500).json({ error: error.message })
     }
 };
 

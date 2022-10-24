@@ -5,12 +5,18 @@ async function deleteUniversityService(id) {
         const university = await University.findById(id);
 
         if (!university) {
-            return { message: "University not found." }
+            return {
+                status: 200,
+                result: "University not found."
+            }
         };
 
         await University.deleteOne({ _id: id });
 
-        return { message: "University deleted succesfully." }
+        return {
+            status: 200,
+            result: "University deleted succesfully."
+        }
     } catch (error) {
         res.status(500).json({ error: error.message })
     }
