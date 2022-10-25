@@ -6,8 +6,8 @@ async function showUniversityByIdService(id) {
 
         if (!universityFounded) {
             return {
-                status: 400,
-                result: "University not founded."
+                status: 204,
+                result: "University not found."
             }
         };
 
