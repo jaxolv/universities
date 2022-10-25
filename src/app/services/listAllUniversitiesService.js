@@ -2,17 +2,6 @@ const University = require('../models/University');
 
 async function listAllUniversitiesService(country) {
     try {
-        const universitiesByCountry = await University.find({ country });
-
-        const universities = await University.find();
-
-        if (!universities) {
-            return {
-                status: 204,
-                result: "No universities in the database. You have to populate it first."
-            }
-        }
-
         function listUniversities(array) {
             return array.map((university) => {
                 return {
@@ -27,10 +16,12 @@ async function listAllUniversitiesService(country) {
 
         if (country) {
 
+            const universitiesByCountry = await University.find({ country });
+
             if (universitiesByCountry.length === 0) {
                 return {
                     status: 400,
-                    result: "Country not saved in the database."
+                    result: "Country not found in the database."
                 }
             };
 
@@ -42,6 +33,15 @@ async function listAllUniversitiesService(country) {
                 }
             }
         };
+
+        const universities = await University.find();
+
+        if (!universities) {
+            return {
+                status: 204,
+                result: "No universities in the database. You have to populate it first."
+            }
+        }
 
         return {
             status: 200,
