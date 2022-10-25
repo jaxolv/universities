@@ -36,9 +36,9 @@ async function listAllUniversitiesService(country) {
 
         const universities = await University.find();
 
-        if (!universities) {
+        if (universities.length === 0) {
             return {
-                status: 204,
+                status: 200,
                 result: "No universities in the database. You have to populate it first."
             }
         }

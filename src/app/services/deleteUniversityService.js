@@ -6,7 +6,7 @@ async function deleteUniversityService(id) {
 
         if (!university) {
             return {
-                status: 204,
+                status: 400,
                 result: "University not found."
             }
         };
