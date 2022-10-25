@@ -1,6 +1,6 @@
 # Universities
 
-Application for avaliation to the team Bis2Bis E-Commerce.
+App for avaliation to the team Bis2Bis E-Commerce.
 
 ## Installation
 
@@ -14,36 +14,31 @@ npm install
 
 ## Run
 
-To run the application, you must create a file [.env](https://www.npmjs.com/package/dotenv) inside the folder `universities`:
+To run the application, it has to be created a file [.env](https://www.npmjs.com/package/dotenv) inside the folder `universities`. Use as example the file `.env.example` to inform the sensible data to connect with the database.
+
+The database was created in MongoDB Atlas, so it has to be informed `user`, `password`, `port` and, most importantly, the `key`, wich is the link informed when you choose to `Connect > Connect your aplication` after created a cluster.
+
+Inform in the file `.env` the key as follow the example:
 
 ```bash
-./universities/.env
+# PARAMS TO CONECTION - MONGODB
+DB_PORT=8888
+DB_KEY='mongodb+srv://<USERNAME>:<PASSWORD>@nameoftheapi.example.mongodb.etc'
 ```
 
-Then, use as example the file ```.env.example``` to inform the sensible data to connect with the database. Chose a port, inform your username to the connection with MongoDB's system and the password created (these last two, in the format `string`).
+In `DB_KEY`: for `<USERNAME>` and `<PASSWORD>` has to be informed, respectively, the username and the password used in the creation of the database. The rest of the key has to be the same as copied originally.
 
-Example:
-```bash
-# PARÂMETROS DE CONEXÃO - MONGODB
-DB_PORT=0000
-DB_USER='<username>'
-DB_PASS='<password>'
-```
+In `DB_PORT`: has to be informed the port used to run the application. In the example, `8888` it's the one that I used.
 
-After that, you can save and run the API in the terminal:
+After that, it is possibly to save and run the API in the terminal:
 
 ```bash
 npm start
 ```
 
-You should receive this message:
-```bash
-Connected to MongoDB!
-```
+If `Connected to MongoDB!` appears in the terminal, it's everything okay to run.
 
-To the API tester, use the port informed.
-
-As the example: `http://localhost:0000`.
+To the API tester software (like INSOMNIA or POSTMAN), use the port informed on the `.env` file. Example: `http://localhost:8888`.
 
 ## Usage overview
 
@@ -86,7 +81,7 @@ This request will not succeed if informed the exact same data from an university
 
 This request will return all the universities in the database.
 
-It is possible to find the universities of a country informing as a query  `country` one of those countries:
+It is possible to find the universities of a country informing as a query `country` one of those countries:
 
 ```bash
 [
@@ -124,17 +119,12 @@ Example:
 }
 ```
 
-The ID have to be informed as a param and will return only the updated data.
+The ID have to be informed as a param and will return only the body requested.
 
 `DELETE /universities/:id`
 
 This request will remove the university that will be found by the ID informed.
 
-This should be the message you receive when executed correctly:
-```json
-{
-  "message": "University deleted succesfully."
-}
-```
+If executed correctly, the message `University deleted succesfully.` will be returned.
 
 The ID have to be informed as a param.
