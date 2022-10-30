@@ -14,7 +14,7 @@ async function populateUniversitiesController(req, res) {
         };
 
         return res.status(405).json({
-            message: "This request can't be executed again."
+            message: "This request can't be executed. The database it's not empty anymore."
         });
     } catch (error) {
         res.status(500).json({ error: error.message })

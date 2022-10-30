@@ -9,7 +9,7 @@ async function listAllUniversitiesService(country) {
                     name: university.name,
                     country: university.country,
                     'state-province': university.state_province,
-                    more_info: `http://universities.hipolabs.com/search?name=${university.name.replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20')}`
+                    more_info: `http://universities.hipolabs.com/search?name=${university.name.replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20').replace(' ', '%20')}`
                 }
             })
         }
@@ -38,7 +38,7 @@ async function listAllUniversitiesService(country) {
 
         if (universities.length === 0) {
             return {
-                status: 200,
+                status: 400,
                 result: "No universities in the database. You have to populate it first."
             }
         }
