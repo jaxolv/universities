@@ -7,7 +7,7 @@
     },
     "servers": [
         {
-            "description": "Localhost",
+            "description": "LocalHost",
             "url": "http://localhost:8888"
         }
     ],
@@ -19,7 +19,6 @@
                 ],
                 "summary": "Populate the database",
                 "description": "This request will consume the API and populate the database.",
-                "request": {},
                 "responses": {
                     "201": {
                         "description": "Database populated succesfully."
@@ -54,6 +53,20 @@
                                             "www.akad.de"
                                         ],
                                         "country": "Germany",
+                                        "state-province": null,
+                                        "name": "AKAD Hochschulen f\u00fcr Berufst\u00e4tige"
+                                    }
+                                },
+                                "universities-error": {
+                                    "value": {
+                                        "domains": [
+                                            "akad.de"
+                                        ],
+                                        "alpha_two_code": "DE",
+                                        "web_pages": [
+                                            "www.akad.de"
+                                        ],
+                                        "country": "",
                                         "state-province": null,
                                         "name": "AKAD Hochschulen f\u00fcr Berufst\u00e4tige"
                                     }
@@ -93,7 +106,11 @@
                         "in": "query",
                         "name": "country",
                         "description": "Country informed to find all universities.",
-                        "required": false
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Germany"
                     }
                 ],
                 "responses": {
@@ -119,13 +136,16 @@
                 "tags": [
                     "List"
                 ],
-                "summary": "List a university.",
+                "summary": "List an university.",
                 "description": "List a university by it's ID to inform all the data saved.",
                 "parameters": [
                     {
                         "in": "path",
                         "name": "id",
                         "description": "ID informed.",
+                        "schema": {
+                            "type": "string"
+                        },
                         "required": true
                     }
                 ],
@@ -136,7 +156,7 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/university-response"
+                                    "$ref": "#/components/schemas/university-body"
                                 }
                             }
                         }
@@ -152,6 +172,17 @@
                 ],
                 "summary": "Update an university",
                 "description": "This request will save updates in an university.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "ID informed.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -162,7 +193,18 @@
                                 "universities-success": {
                                     "value": {
                                         "domains": [
-                                            "example.ex"
+                                            "akad.de"
+                                        ],
+                                        "web_pages": [
+                                            "http://www.akad.de/"
+                                        ],
+                                        "name": "AKAD Hochschulen f\u00fcr Berufst\u00e4tige, Fachhochschule Leipzig"
+                                    }
+                                },
+                                "universities-error": {
+                                    "value": {
+                                        "domains": [
+                                            ""
                                         ],
                                         "web_pages": [
                                             "http://www.akad.de/"
@@ -174,17 +216,9 @@
                         }
                     }
                 },
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "ID informed.",
-                        "required": true
-                    }
-                ],
                 "responses": {
                     "200": {
-                        "description": "University created successfully",
+                        "description": "University updated successfully",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -213,6 +247,9 @@
                         "in": "path",
                         "name": "id",
                         "description": "ID informed.",
+                        "schema": {
+                            "type": "string"
+                        },
                         "required": true
                     }
                 ],
@@ -232,63 +269,41 @@
             "university-body": {
                 "type": "object",
                 "properties": {
-                    "domains": [
-                        {
-                            "type": "string"
-                        }
-                    ],
-                    "alpha_two_code": {
-                        "type": "string"
+                    "domains": {
+                        "type": "array",
+                        "item": "string"
                     },
-                    "web_pages": [
-                        {
-                            "type": "string"
-                        }
-                    ],
-                    "country": {
-                        "type": "string"
+                    "alpha_two_code": { "type": "string" },
+                    "web_pages": {
+                        "type": "array",
+                        "item": "string"
                     },
-                    "state-province": {
-                        "type": "string"
-                    },
-                    "name": {
-                        "type": "string"
-                    }
+                    "country": { "type": "string" },
+                    "state-province": { "type": "string" },
+                    "name": { "type": "string" }
                 }
             },
             "list-universities-response": {
                 "type": "object",
                 "properties": {
-                    "id": {
-                        "type": "string"
-                    },
-                    "name": {
-                        "type": "string"
-                    },
-                    "country": {
-                        "type": "string"
-                    },
-                    "more_info": {
-                        "type": "string"
-                    }
+                    "id": { "type": "string" },
+                    "name": { "type": "string" },
+                    "country": { "type": "string" },
+                    "more_info": { "type": "string" }
                 }
             },
             "updated-university": {
                 "type": "object",
                 "properties": {
-                    "domains": [
-                        {
-                            "type": "string"
-                        }
-                    ],
-                    "web_pages": [
-                        {
-                            "type": "string"
-                        }
-                    ],
-                    "name": {
-                        "type": "string"
-                    }
+                    "domains": {
+                        "type": "array",
+                        "item": "string"
+                    },
+                    "web_pages": {
+                        "type": "array",
+                        "item": "string"
+                    },
+                    "name": { "type": "string" }
                 }
             }
         }
