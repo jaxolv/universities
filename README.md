@@ -14,37 +14,43 @@ npm install
 
 ## Run
 
-To run the application, it has to be created a file [.env](https://www.npmjs.com/package/dotenv) inside the folder `universities`. Use as example the file `.env.example` to inform the sensible data to connect with the database.
+To run the application, it has to be created a file [.env](https://www.npmjs.com/package/dotenv) inside the folder `universities`. Using as example the file `.env.example`, inform the sensible data to connect with the database.
 
-The database was created in MongoDB Atlas, so it has to be informed `user`, `password`, `port` and, most importantly, the `key`, wich is the link informed when you choose to `Connect > Connect your aplication` after created a cluster.
+The database was created in MongoDB Atlas, so it has to be informed `user`, `password`, `port` and, most importantly, the `key`, wich is the link informed when you choose `Connect > Connect your aplication` after created a cluster.
 
 Inform in the file `.env` the key as follow the example:
 
 ```bash
 # PARAMS TO CONECTION - MONGODB
 DB_PORT=8888
-DB_KEY='mongodb+srv://<USERNAME>:<PASSWORD>@nameoftheapi.example.mongodb.etc'
+DB_KEY='mongodb+srv://<USERNAME>:<PASSWORD>@nameoftheapi.etc...'
 ```
 
-In `DB_KEY`: for `<USERNAME>` and `<PASSWORD>` has to be informed, respectively, the username and the password used in the creation of the database. The rest of the key has to be the same as copied originally.
+`DB_KEY`: for `<USERNAME>` and `<PASSWORD>` has to be informed, respectively, the username and the password used in the creation of the database. The rest of the key has to be the same as copied originally.
 
-In `DB_PORT`: has to be informed the port used to run the application. In the example, `8888` it's the one that I used.
+`DB_PORT`: has to be informed the port used to run the application. In the example, `8888` it's the one that I used.
 
-After that, it is possibly to save and run the API in the terminal:
+After that, it is possibly to save and run the API in the terminal using:
 
 ```bash
 npm start
 ```
 
-If `Connected to MongoDB!` appears in the terminal, it's everything okay to run.
+If `Connected to MongoDB!` appears in the terminal, it's everything okay to execute the API.
 
 ## Documentation
 
-The documentation to this API was made by Swagger. Use the Port informed for `.env` as the example:
+The documentation to this API was made by Swagger. Make sure to run the API and then use the port informed for `.env`. As an example:
 
-`http://localhost:8888/universities/docs`
+http://localhost:8888/universities/docs
 
-Of course, if used a port different than `8888`, it has to be informed in this path.
+If used another port than the one in this example, it is necessary to change it in the Swagger document. Go to `./src/docs/swagger.json` and substitute the port in the line 11, column 38 to 42. 
+
+```json
+"url": "http://localhost:8888"
+```
+
+No other alteration will be necessary.
 
 The same works for softwares like [Insomnia](https://insomnia.rest/download) or [Postman](https://www.postman.com/) to test the API.
 
