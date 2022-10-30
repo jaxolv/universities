@@ -8,7 +8,289 @@
     "servers": [
         {
             "description": "Localhost",
-            "url": "http://localhost:8888/universities"
+            "url": "http://localhost:8888"
         }
-    ]
+    ],
+    "paths": {
+        "/universities/populate": {
+            "post": {
+                "tags": [
+                    "Populate"
+                ],
+                "summary": "Populate the database",
+                "description": "This request will consume the API and populate the database.",
+                "request": {},
+                "responses": {
+                    "201": {
+                        "description": "Database populated succesfully."
+                    },
+                    "405": {
+                        "description": "This request can't be executed because the database it's not empty anymore."
+                    }
+                }
+            }
+        },
+        "/universities": {
+            "post": {
+                "tags": [
+                    "Create"
+                ],
+                "summary": "Create an university",
+                "description": "This request will save an university in the database.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/university-body"
+                            },
+                            "examples": {
+                                "universities-success": {
+                                    "value": {
+                                        "domains": [
+                                            "akad.de"
+                                        ],
+                                        "alpha_two_code": "DE",
+                                        "web_pages": [
+                                            "www.akad.de"
+                                        ],
+                                        "country": "Germany",
+                                        "state-province": null,
+                                        "name": "AKAD Hochschulen f\u00fcr Berufst\u00e4tige"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "University created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/university-body"
+                                }
+                            }
+                        }
+                    },
+                    "406": {
+                        "description": "One or more fields were not informed in the request."
+                    },
+                    "400": {
+                        "description": "A university with the same data was already saved in the database."
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "List"
+                ],
+                "summary": "List all universities.",
+                "description": "List all universities saved in the database.",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "country",
+                        "description": "Country informed to find all universities.",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of all universities found in the database.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/list-universities-response"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "No universities found."
+                    }
+                }
+            }
+        },
+        "/universities/{id}": {
+            "get": {
+                "tags": [
+                    "List"
+                ],
+                "summary": "List a university.",
+                "description": "List a university by it's ID to inform all the data saved.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "ID informed.",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "All data from the university.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/university-response"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "University not found."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Update"
+                ],
+                "summary": "Update an university",
+                "description": "This request will save updates in an university.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updated-university"
+                            },
+                            "examples": {
+                                "universities-success": {
+                                    "value": {
+                                        "domains": [
+                                            "example.ex"
+                                        ],
+                                        "web_pages": [
+                                            "http://www.akad.de/"
+                                        ],
+                                        "name": "AKAD Hochschulen f\u00fcr Berufst\u00e4tige, Fachhochschule Leipzig"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "ID informed.",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "University created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/updated-university"
+                                }
+                            }
+                        }
+                    },
+                    "406": {
+                        "description": "One or more fields were not informed in the request."
+                    },
+                    "400": {
+                        "description": "Univeristy not found."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Delete"
+                ],
+                "summary": "Delete an university",
+                "description": "This request will delete an university.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "ID informed.",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "University deleted successfully"
+                    },
+                    "400": {
+                        "description": "Univeristy not found."
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "university-body": {
+                "type": "object",
+                "properties": {
+                    "domains": [
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "alpha_two_code": {
+                        "type": "string"
+                    },
+                    "web_pages": [
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "country": {
+                        "type": "string"
+                    },
+                    "state-province": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "list-universities-response": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "country": {
+                        "type": "string"
+                    },
+                    "more_info": {
+                        "type": "string"
+                    }
+                }
+            },
+            "updated-university": {
+                "type": "object",
+                "properties": {
+                    "domains": [
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "web_pages": [
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
 }
