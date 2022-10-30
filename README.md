@@ -38,7 +38,15 @@ npm start
 
 If `Connected to MongoDB!` appears in the terminal, it's everything okay to run.
 
-To the API tester software (like INSOMNIA or POSTMAN), use the port informed on the `.env` file. Example: `http://localhost:8888`.
+## Documentation
+
+The documentation to this API was made by Swagger. Use the Port informed for `.env` as the example:
+
+`http://localhost:8888/universities/docs`
+
+Of course, if used a port different than `8888`, it has to be informed in this path.
+
+The same works for softwares like [Insomnia](https://insomnia.rest/download) or [Postman](https://www.postman.com/) to test the API.
 
 ## Usage overview
 
