@@ -1,7 +1,5 @@
 # Universities
 
-App for avaliation to the team Bis2Bis E-Commerce.
-
 ## Installation
 
 Use the [npm](https://www.npmjs.com/) to install.
